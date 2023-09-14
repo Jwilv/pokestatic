@@ -1,4 +1,4 @@
-import MainLayout from "@/components/layouts/MainLayout";
+import { MainLayout } from "@/components/layouts";
 import { Button, Card } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 
