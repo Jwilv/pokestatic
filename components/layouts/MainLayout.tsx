@@ -1,5 +1,6 @@
 import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import Head from "next/head"
+import Image from "next/image";
 
 interface Props {
     children: React.ReactNode;
@@ -16,11 +17,15 @@ const MainLayout = ({ children, title }: Props) => {
             </Head>
 
             <main>
-            <Navbar shouldHideOnScroll maxWidth="full">
-                <NavbarContent >
+                <Navbar shouldHideOnScroll maxWidth="full">
                     <NavbarBrand>
-                        <h2>P</h2>
-                        <h3>okemon</h3>
+                        <Image
+                            src={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'}
+                            alt="pokemon"
+                            width={70}
+                            height={70}
+                        />
+                        <h3>Pokemon</h3>
                     </NavbarBrand>
                     <NavbarItem>
                         <Link color="foreground" href="#">
@@ -32,13 +37,17 @@ const MainLayout = ({ children, title }: Props) => {
                             Features
                         </Link>
                     </NavbarItem>
-                    <NavbarItem>
-                        <Link color="foreground" href="#">
-                            Features
-                        </Link>
-                    </NavbarItem>
-                </NavbarContent>
-            </Navbar>
+                    <NavbarContent justify="end">
+                        <NavbarItem>
+                            <Link
+                                color="foreground"
+                                href="#"
+                            >
+                                Favoritos
+                            </Link>
+                        </NavbarItem>
+                    </NavbarContent>
+                </Navbar>
                 {children}
             </main>
         </>
