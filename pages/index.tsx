@@ -1,8 +1,15 @@
 import { MainLayout } from "@/components/layouts";
 import { Button, Card } from "@nextui-org/react";
+import { GetStaticProps, NextPage } from "next";
 import { useTheme } from "next-themes";
 
-const HomePage = () => {
+interface HomePageProps {
+  getLayout: (page: JSX.Element) => JSX.Element
+}
+
+const HomePage: HomePageProps = (props: {}) => {
+
+  console.log(props)
 
   const { setTheme } = useTheme();
   return (
@@ -27,6 +34,23 @@ HomePage.getLayout = (page: JSX.Element) => {
       {page}
     </MainLayout>
   )
+}
+
+interface StaticProps {
+  props: {
+    [key: string]: any;
+  }
+}
+
+export const getStaticProps: GetStaticProps = async (ctx): Promise<StaticProps> => {
+
+  console.log('hola mundo')
+
+  return {
+    props: {
+      data: null
+    }
+  }
 }
 
 export default HomePage
