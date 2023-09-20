@@ -1,5 +1,6 @@
 import { pokeApi } from "@/api";
 import { MainLayout } from "@/components/layouts";
+import { PokemonsList } from "@/components/pokemons/PokemonsList";
 import { PokemonListResponse, SmallPokemon } from "@/interfaces";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import { GetStaticProps } from "next";
@@ -16,7 +17,7 @@ interface Props {
 const HomePage: HomePageProps = ({ pokemons }: Props) => {
 
   return (
-    
+    <PokemonsList pokemons={pokemons} /> 
   )
 }
 
