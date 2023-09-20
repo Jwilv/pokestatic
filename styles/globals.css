@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.poke-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.poke-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke-card {
+    margin-right: 20px;
+    margin-left: 15px;
+}
