@@ -1,5 +1,6 @@
 import { Card, CardBody, CardFooter } from '@nextui-org/react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 interface PokemonItemProps {
@@ -9,8 +10,16 @@ interface PokemonItemProps {
 }
 
 export const PokemonItem = ({ id, name, img }: PokemonItemProps) => {
+
+    const router = useRouter();
+
+    const handleClick = () => {
+        router.push(`/pokemon/${id}`);
+    }
+
     return (
         <Card
+        onClick={handleClick}
             key={id}
             isPressable
             className="poke-card"
