@@ -1,10 +1,9 @@
 import { pokeApi } from "@/api";
 import { PokemonSprites } from "@/components/pokemons/pokemonSprites";
 import { Pokemon } from "@/interfaces";
-import { Card, CardBody } from "@nextui-org/react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Image from "next/image";
-import { useRouter } from "next/router"
+import { ActiveImg } from '../../components/pokemons/ActiveImg/ActiveImg';
+import { ActiveImgProvider } from "@/components/pokemons/ActiveImg/Context/ActiveImgContext";
 
 interface Props {
   pokemon: Pokemon
@@ -12,13 +11,11 @@ interface Props {
 
 const PokemonPage = ({ pokemon }: Props) => {
 
-  const router = useRouter();
-
-  const { id } = router.query
   return (
-    <div>
+    <ActiveImgProvider initialImg={pokemon.sprites.front_default}>
+      <ActiveImg />
       <PokemonSprites imgs={pokemon.sprites}/>
-    </div>
+    </ActiveImgProvider>
 
   )
 }

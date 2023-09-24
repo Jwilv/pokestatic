@@ -4,4 +4,5 @@
     margin: 10px;
     border-radius: 10px;
     background-color: rgba(34, 32, 32, 0.934);
+    cursor: pointer;
 }
