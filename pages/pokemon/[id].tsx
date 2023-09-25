@@ -16,7 +16,7 @@ const PokemonPage = ({ pokemon }: Props) => {
 
   return (
 
-    <div style={{ display: 'flex', justifyContent:'space-around', marginTop: '50px' }}>
+    <div style={{ display: 'flex', justifyContent:'space-around', marginTop: '50px', flexWrap: 'wrap'}}>
       <ActiveImgProvider initialImg={pokemon.sprites.front_default}>
 
         <PokemonDesc pokemon={pokemon}/>

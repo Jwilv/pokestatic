@@ -9,7 +9,7 @@ export const ActiveImg = () => {
 
     return (
         <div className={styles.container} >
-            <Image src={img} alt={img} height={500} width={500} />
+            <Image src={img} alt={img} height={300} width={300} />
         </div>
     )
 }
