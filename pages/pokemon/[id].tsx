@@ -4,6 +4,7 @@ import { Pokemon } from "@/interfaces";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ActiveImg } from '../../components/pokemons/ActiveImg/ActiveImg';
 import { ActiveImgProvider } from "@/components/pokemons/ActiveImg/Context/ActiveImgContext";
+import { PokemonStats } from "@/components/pokemons/pokemonStats/PokemonStats";
 
 interface Props {
   pokemon: Pokemon
@@ -15,6 +16,7 @@ const PokemonPage = ({ pokemon }: Props) => {
     <ActiveImgProvider initialImg={pokemon.sprites.front_default}>
       <ActiveImg />
       <PokemonSprites imgs={pokemon.sprites}/>
+      <PokemonStats stats={pokemon.stats} /> 
     </ActiveImgProvider>
 
   )

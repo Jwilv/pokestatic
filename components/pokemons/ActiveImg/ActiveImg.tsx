@@ -22,7 +22,6 @@ export const ActiveImg = () => {
                     width: 800,
                     height: 800
                 },
-                isHintenable: true,
                 enlargedImageContainerDimensions: { width: '100%', height: '100%' }
             }} />
         </div>
