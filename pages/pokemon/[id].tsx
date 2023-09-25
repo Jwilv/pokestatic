@@ -16,7 +16,7 @@ const PokemonPage = ({ pokemon }: Props) => {
     <ActiveImgProvider initialImg={pokemon.sprites.front_default}>
       <ActiveImg />
       <PokemonSprites imgs={pokemon.sprites}/>
-      <PokemonStats stats={pokemon.stats} /> 
+      <PokemonStats {...pokemon} /> 
     </ActiveImgProvider>
 
   )
