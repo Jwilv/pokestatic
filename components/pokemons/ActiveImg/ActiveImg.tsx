@@ -10,7 +10,6 @@ export const ActiveImg = () => {
 
     return (
         <div className={styles.container} >
-            {/* <Image src={img} alt={img} width={500} height={500} /> */}
             <ReactImageMagnify {...{
                 smallImage: {
                     alt: 'Wristwatch by Ted Baker London',
@@ -19,10 +18,13 @@ export const ActiveImg = () => {
                 },
                 largeImage: {
                     src: img,
-                    width: 800,
-                    height: 800
+                    width: 900,
+                    height: 900
                 },
-                enlargedImageContainerDimensions: { width: '100%', height: '100%' }
+                enlargedImageContainerDimensions: { width: '150%', height: '100%' },
+                enlargedImageContainerStyle: {
+                    'background-color': 'white'
+                }
             }} />
         </div>
     )
