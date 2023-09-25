@@ -1,7 +1,7 @@
 import styles from './ActiveImg.module.css'
 import { useContext } from 'react'
 import { activeImgContext } from './Context/ActiveImgContext'
-import { ImgMagnify } from './components/ImgMagnify';
+import Image from 'next/image';
 
 export const ActiveImg = () => {
 
@@ -9,7 +9,7 @@ export const ActiveImg = () => {
 
     return (
         <div className={styles.container} >
-            <ImgMagnify img={img} />
+            <Image src={img} alt={img} height={500} width={500} />
         </div>
     )
 }

@@ -38,7 +38,7 @@ export const PokemonItem = ({ id, name, img }: PokemonItemProps) => {
             <CardFooter
                 className="poke-footer"
             >
-                <b>#{id} {name}</b>
+                <b>#{id} {name.toUpperCase()}</b>
             </CardFooter>
         </Card>
     )

@@ -6,7 +6,7 @@ import { ActiveImg } from '../../components/pokemons/ActiveImg/ActiveImg';
 import { ActiveImgProvider } from "@/components/pokemons/ActiveImg/Context/ActiveImgContext";
 import { PokemonStats } from "@/components/pokemons/pokemonStats/PokemonStats";
 import { PokemonImgs } from "@/components/pokemons/pokemonImgs/PokemonImgs";
-import { PokemonTitle } from "@/components/pokemons/pokemonTitle/PokemonTitle";
+import { PokemonDesc } from "@/components/pokemons/pokemonDesc/PokemonDesc";
 
 interface Props {
   pokemon: Pokemon
@@ -15,16 +15,20 @@ interface Props {
 const PokemonPage = ({ pokemon }: Props) => {
 
   return (
-    <ActiveImgProvider initialImg={pokemon.sprites.front_default}>
 
-      <PokemonImgs>
-        <PokemonTitle title={pokemon.name} />
-        <ActiveImg />
-        <PokemonSprites imgs={pokemon.sprites} />
-      </PokemonImgs>
+    <div style={{ display: 'flex', justifyContent:'space-around', marginTop: '50px' }}>
+      <ActiveImgProvider initialImg={pokemon.sprites.front_default}>
 
-      <PokemonStats {...pokemon} />
-    </ActiveImgProvider>
+        <PokemonDesc {...pokemon}/>
+        <PokemonImgs>
+          <ActiveImg />
+          <PokemonSprites imgs={pokemon.sprites} />
+        </PokemonImgs>
+
+        <PokemonStats {...pokemon} />
+
+      </ActiveImgProvider>
+    </div>
 
   )
 }

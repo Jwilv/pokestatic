@@ -15,7 +15,7 @@ const CardSprites = ({img} : Props ) => {
     className={styles.cardContainer}
     onClick={() => setImgActive(img)}
     >
-      <Image src={img} alt = {'aaa'} width={100} height={100} />
+      <Image src={img} alt = {img} width={100} height={100} />
     </div>
   )
 }
