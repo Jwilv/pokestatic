@@ -25,7 +25,7 @@ export const PokemonStats = ({ stats }: Pokemon) => {
         const labels = stats.map((stat) => stat.stat.name);
         const data = {
             labels: labels,
-            datasets: [
+            _datasets: [
                 {
                     label: 'Stat',
                     data: stats.map((stat) => stat.base_stat),
@@ -38,11 +38,18 @@ export const PokemonStats = ({ stats }: Pokemon) => {
                         'orange',
                     ]
                 }
-            ]
+            ],
+            get datasets() {
+                return this._datasets;
+            },
+            set datasets(value) {
+                this._datasets = value;
+            },
         };
 
+        const newLocal = 'polarArea';
         const myChart = new Chart(ctx, {
-            type: 'polarArea',
+            type: newLocal,
             data: data,
             options: {
                 // responsive: false,
