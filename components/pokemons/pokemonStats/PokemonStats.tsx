@@ -42,15 +42,19 @@ export const PokemonStats = ({ stats }: Pokemon) => {
         };
 
         const myChart = new Chart(ctx, {
-            type: 'pie',
+            type: 'polarArea',
             data: data,
             options: {
-                responsive: false,
+                // responsive: false,
             },
         });
 
         myChartRef.current = myChart;
     };
 
-    return <canvas id="myChart" ref={chartRef} className={styles.chart}></canvas>;
+    return (
+        <div className={styles.chart}>
+            <canvas id="myChart" ref={chartRef} ></canvas>
+        </div>
+    );
 };
