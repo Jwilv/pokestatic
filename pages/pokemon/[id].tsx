@@ -8,6 +8,7 @@ import { PokemonStats } from "@/components/pokemons/pokemonStats/PokemonStats";
 import { PokemonImgs } from "@/components/pokemons/pokemonImgs/PokemonImgs";
 import { PokemonDesc } from "@/components/pokemons/pokemonDesc/PokemonDesc";
 import { MainLayout } from "@/components/layouts";
+import Head from "next/head";
 
 interface Props {
   pokemon: Pokemon
@@ -19,19 +20,26 @@ const PokemonPage = ({ pokemon }: Props) => {
 
   return (
 
-    <div style={{ display: 'flex', justifyContent:'space-around', marginTop: '50px', flexWrap: 'wrap'}}>
-      <ActiveImgProvider initialImg={imgDefault}>
+    <>
+      <Head>
+        <title>{pokemon.name}</title>
+        <meta name="description" content="app for poke" />
+        <meta name='author' content="app for poke" />
+      </Head>
+      <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '50px', flexWrap: 'wrap' }}>
+        <ActiveImgProvider initialImg={imgDefault}>
 
-        <PokemonDesc pokemon={pokemon}/>
-        <PokemonImgs>
-          <ActiveImg />
-          <PokemonSprites sprites={pokemon.sprites} imgDefault={imgDefault}/>
-        </PokemonImgs>
+          <PokemonDesc pokemon={pokemon} />
+          <PokemonImgs>
+            <ActiveImg />
+            <PokemonSprites sprites={pokemon.sprites} imgDefault={imgDefault} />
+          </PokemonImgs>
 
-        <PokemonStats {...pokemon} />
+          <PokemonStats {...pokemon} />
 
-      </ActiveImgProvider>
-    </div>
+        </ActiveImgProvider>
+      </div>
+    </>
 
   )
 }
