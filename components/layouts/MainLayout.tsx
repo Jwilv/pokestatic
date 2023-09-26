@@ -1,6 +1,7 @@
 import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import Head from "next/head"
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 interface Props {
     children: React.ReactNode;
@@ -8,6 +9,13 @@ interface Props {
 }
 
 const MainLayout = ({ children, title }: Props) => {
+
+    const router = useRouter();
+
+    const onClickBrand = () => {
+        router.push('/');
+    }
+
     return (
         <>
             <Head>
@@ -24,8 +32,13 @@ const MainLayout = ({ children, title }: Props) => {
                             alt="pokemon"
                             width={70}
                             height={70}
+                            onClick={onClickBrand}
+                            style={{ cursor: 'pointer' }}   
                         />
-                        <h3>Pokemon</h3>
+                        <h3
+                            style={{ cursor: 'pointer' }}
+                            onClick={onClickBrand}
+                        >Pokemon</h3>
                     </NavbarBrand>
                     <NavbarItem>
                         <Link color="foreground" href="#">

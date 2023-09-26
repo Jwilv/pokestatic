@@ -7,6 +7,7 @@ import { ActiveImgProvider } from "@/components/pokemons/ActiveImg/Context/Activ
 import { PokemonStats } from "@/components/pokemons/pokemonStats/PokemonStats";
 import { PokemonImgs } from "@/components/pokemons/pokemonImgs/PokemonImgs";
 import { PokemonDesc } from "@/components/pokemons/pokemonDesc/PokemonDesc";
+import { MainLayout } from "@/components/layouts";
 
 interface Props {
   pokemon: Pokemon
@@ -30,6 +31,14 @@ const PokemonPage = ({ pokemon }: Props) => {
       </ActiveImgProvider>
     </div>
 
+  )
+}
+
+PokemonPage.getLayout = (page: JSX.Element) => {
+  return (
+    <MainLayout>
+      {page}
+    </MainLayout>
   )
 }
 
