@@ -3,16 +3,18 @@ import CardSprites from './CardSprites';
 import { Sprites } from '@/interfaces';
 
 interface Props {
-  imgs : Sprites
+  sprites : Sprites;
+  imgDefault : string;
 }
 
-export const PokemonSprites = ( { imgs } : Props ) => {
+export const PokemonSprites = ( { sprites, imgDefault } : Props ) => {
   return (
     <div className={styles.spritesBar}>
-      <CardSprites img={imgs.front_default}/>
-      <CardSprites img={imgs.back_default}/>
-      <CardSprites img={imgs.front_shiny}/>
-      <CardSprites img={imgs.back_shiny}/>
+      <CardSprites img={imgDefault}/>
+      <CardSprites img={sprites.front_default}/>
+      <CardSprites img={sprites.back_default}/>
+      <CardSprites img={sprites.front_shiny}/>
+      <CardSprites img={sprites.back_shiny}/>
     </div>
   )
 }

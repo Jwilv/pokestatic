@@ -15,15 +15,17 @@ interface Props {
 
 const PokemonPage = ({ pokemon }: Props) => {
 
+  const imgDefault = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`
+
   return (
 
     <div style={{ display: 'flex', justifyContent:'space-around', marginTop: '50px', flexWrap: 'wrap'}}>
-      <ActiveImgProvider initialImg={pokemon.sprites.front_default}>
+      <ActiveImgProvider initialImg={imgDefault}>
 
         <PokemonDesc pokemon={pokemon}/>
         <PokemonImgs>
           <ActiveImg />
-          <PokemonSprites imgs={pokemon.sprites} />
+          <PokemonSprites sprites={pokemon.sprites} imgDefault={imgDefault}/>
         </PokemonImgs>
 
         <PokemonStats {...pokemon} />
