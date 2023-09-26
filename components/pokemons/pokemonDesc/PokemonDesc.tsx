@@ -11,7 +11,7 @@ interface Props {
 export const PokemonDesc = ({ pokemon }: Props) => {
 
   return (
-    <div className="">
+    <div className={styles.container}>
       <PokemonTitle title={pokemon.name} />
       <PokemonData {...pokemon} />
     </div>
