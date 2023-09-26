@@ -1,6 +1,6 @@
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@nextui-org/react'
-import Link from 'next/link';
+import { Navbar, NavbarContent } from '@nextui-org/react'
 import { Brand } from './components/Brand';
+import { Item } from './components/Item';
 
 const NavbarUi = () => {
 
@@ -12,26 +12,9 @@ const NavbarUi = () => {
 
     return (
         <Navbar shouldHideOnScroll maxWidth="full">
-            <Brand {...brandProps}/>
-            <NavbarItem>
-                <Link color="foreground" href="#">
-                    Features
-                </Link>
-            </NavbarItem>
-            <NavbarItem>
-                <Link color="foreground" href="#">
-                    Features
-                </Link>
-            </NavbarItem>
+            <Brand {...brandProps} />
             <NavbarContent justify="end">
-                <NavbarItem>
-                    <Link
-                        color="foreground"
-                        href="#"
-                    >
-                        Favoritos
-                    </Link>
-                </NavbarItem>
+                <Item href="/favorites" label="Favorites" />
             </NavbarContent>
         </Navbar>
     )
