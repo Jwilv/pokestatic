@@ -5,7 +5,7 @@ import styles from './PokemonStats.module.css'
 
 export const PokemonStats = ({ stats }: Pokemon) => {
     const chartRef = useRef<HTMLCanvasElement | null>(null);
-    const myChartRef = useRef<Chart | null>(null);
+    const myChartRef = useRef<Chart | any>(null);
 
     useEffect(() => {
         createGrafica();

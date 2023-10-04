@@ -21,6 +21,7 @@ const MainLayout = ({ children, title }: Props) => {
                 <title>{title || 'poke app'}</title>
                 <meta name="description" content="app for poke" />
                 <meta name='author' content="app for poke" />
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
             </Head>
             <Navbar />
             <main>
