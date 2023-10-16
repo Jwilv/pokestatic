@@ -3,6 +3,7 @@ import styles from "../../components/favorites/Favorites.module.css"
 import { useState, useEffect } from 'react';
 import { getFavorites } from "@/utils/localFavorites";
 import { FavoritesList } from "@/components/favorites/FavoritesList";
+import { NoFavorites } from "@/components/ui/NoFavorites";
 
 
 const FavoritesPage = () => {
@@ -16,7 +17,14 @@ const FavoritesPage = () => {
 
   return (
     <div className={styles['favorites-container']}>
-      <FavoritesList pokemonsId={favorites} />
+      {
+        favorites.length === 0 ? (
+          <NoFavorites />
+        )
+        : (
+          <FavoritesList pokemonsId={favorites} />
+        )
+      }
     </div>
   )
 }
