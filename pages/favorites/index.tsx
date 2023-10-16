@@ -2,7 +2,7 @@ import { MainLayout } from "@/components/layouts"
 import styles from "../../components/favorites/Favorites.module.css"
 import { useState, useEffect } from 'react';
 import { getFavorites } from "@/utils/localFavorites";
-import { PokemonItem } from "@/components/pokemons/PokemonItem";
+import { FavoritesList } from "@/components/favorites/FavoritesList";
 
 
 const FavoritesPage = () => {
@@ -16,14 +16,7 @@ const FavoritesPage = () => {
 
   return (
     <div className={styles['favorites-container']}>
-      <div className={styles.favorites}>
-        {
-          favorites.map((id) => (
-            <PokemonItem key={id} id={id} />
-          ))
-        }
-
-      </div>
+      <FavoritesList pokemonsId={favorites} />
     </div>
   )
 }
