@@ -7,48 +7,48 @@ import { PokemonDesc } from "@/components/pokemons/pokemonDesc/PokemonDesc";
 import { PokemonImgs } from "@/components/pokemons/pokemonImgs/PokemonImgs";
 import { PokemonSprites } from "@/components/pokemons/pokemonSprites";
 import { PokemonStats } from "@/components/pokemons/pokemonStats/PokemonStats";
-import  Head  from "next/head";
+import Head from "next/head";
 import { MainLayout } from "@/components/layouts";
 
 interface Props {
     pokemon: Pokemon
-  }
+}
 
-const PokemonByNamePage = ({pokemon} : Props) => {
+const PokemonByNamePage = ({ pokemon }: Props) => {
     const imgDefault = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`
 
     return (
-  
-      <>
-        <Head>
-          <title>{pokemon.name}</title>
-          <meta name="description" content="app for poke" />
-          <meta name='author' content="app for poke" />
-        </Head>
-        <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '50px', flexWrap: 'wrap' }}>
-          <ActiveImgProvider initialImg={imgDefault}>
-  
-            <PokemonDesc pokemon={pokemon} />
-            <PokemonImgs>
-              <ActiveImg />
-              <PokemonSprites sprites={pokemon.sprites} imgDefault={imgDefault} />
-            </PokemonImgs>
-  
-            <PokemonStats {...pokemon} />
-  
-          </ActiveImgProvider>
-        </div>
-      </>
-  
+
+        <>
+            <Head>
+                <title>{pokemon.name}</title>
+                <meta name="description" content="app for poke" />
+                <meta name='author' content="app for poke" />
+            </Head>
+            <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '50px', flexWrap: 'wrap' }}>
+                <ActiveImgProvider initialImg={imgDefault}>
+
+                    <PokemonDesc pokemon={pokemon} />
+                    <PokemonImgs>
+                        <ActiveImg />
+                        <PokemonSprites sprites={pokemon.sprites} imgDefault={imgDefault} />
+                    </PokemonImgs>
+
+                    <PokemonStats {...pokemon} />
+
+                </ActiveImgProvider>
+            </div>
+        </>
+
     )
 }
 
 PokemonByNamePage.getLayout = (page: JSX.Element) => {
-  return (
-    <MainLayout>
-      {page}
-    </MainLayout>
-  )
+    return (
+        <MainLayout>
+            {page}
+        </MainLayout>
+    )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -56,7 +56,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     return {
         paths: data.results.map((pokemon, i) => ({
             params: {
-                name : pokemon.name,
+                name: pokemon.name,
             }
         })),
         fallback: false
@@ -67,11 +67,29 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { name } = params as { name: string };
     const { data } = await pokeApi.get<Pokemon>(`pokemon/${name}`);
 
-    console.log(data)
+    const {
+        species, stats, id,
+        name: namePokemon, types,
+        base_experience, abilities,
+        height, weight, sprites
+    } = data
+
+    const pokemon = {
+        species,
+        types,
+        stats,
+        id,
+        name: namePokemon,
+        base_experience,
+        abilities,
+        height,
+        weight,
+        sprites,
+    }
 
     return {
         props: {
-            pokemon: data
+            pokemon
         }
     }
 }
