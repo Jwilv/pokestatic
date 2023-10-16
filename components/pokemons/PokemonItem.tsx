@@ -4,9 +4,9 @@ import { useRouter } from 'next/router'
 import React from 'react'
 
 interface PokemonItemProps {
-    id: number
-    name: string
-    img: string
+    id: number | string
+    name?: string
+    img?: string
 }
 
 export const PokemonItem = ({ id, name, img }: PokemonItemProps) => {
@@ -30,15 +30,15 @@ export const PokemonItem = ({ id, name, img }: PokemonItemProps) => {
                 <Image
                     width={160}
                     height={160}
-                    alt={name}
+                    alt={name || 'pokemon'}
                     className="object-cover h-[140px]"
-                    src={img}
+                    src={img || `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
                 />
             </CardBody>
             <CardFooter
                 className="poke-footer"
             >
-                <b>#{id} {name.toUpperCase()}</b>
+                <b>#{id} {name?.toUpperCase()}</b>
             </CardFooter>
         </Card>
     )

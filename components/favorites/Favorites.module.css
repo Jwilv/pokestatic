@@ -1,0 +1,15 @@
+.favorites-container{
+    height: calc(100vh - 64px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+}
+
+.favorites{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100vw;
+    justify-items: center;
+}

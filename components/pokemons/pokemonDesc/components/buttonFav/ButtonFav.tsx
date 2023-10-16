@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { toggleFavorite } from '../../utils/localFavorites'
+import { toggleFavorite } from '../../../../../utils/localFavorites'
 import styles from './ButtonFav.module.css'
 import { useRouter } from 'next/router'
 
