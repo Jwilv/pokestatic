@@ -1,4 +1,5 @@
-import { Link, NavbarItem } from "@nextui-org/react"
+import { NavbarItem } from "@nextui-org/react"
+import Link from "next/link";
 
 interface Props {
     href: string;
