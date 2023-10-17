@@ -21,6 +21,19 @@ export interface Pokemon {
     weight:                   number;
 }
 
+export interface PokemonPrev {
+    species: Species,
+    types: Type[],
+    stats: Stat[],
+    id: number,
+    name: string,
+    base_experience: number,
+    abilities: Ability[],
+    height: number,
+    weight: number,
+    sprites: Sprites,
+}
+
 export interface Ability {
     ability:   Species;
     is_hidden: boolean;

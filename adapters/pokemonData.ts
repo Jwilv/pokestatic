@@ -1,7 +1,7 @@
-import { Pokemon } from "@/interfaces";
+import { Pokemon, PokemonPrev } from "@/interfaces";
 
 
-export const pokemondata = ( data : Pokemon)=>{
+export const pokemondata = ( data : Pokemon) : PokemonPrev=>{
     const {
         species, stats, id,
         name: namePokemon, types,

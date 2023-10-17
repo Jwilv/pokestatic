@@ -1,4 +1,3 @@
-import { pokeApi } from "@/api";
 import { PokemonSprites } from "@/components/pokemons/pokemonSprites";
 import { Pokemon } from "@/interfaces";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -9,6 +8,7 @@ import { PokemonImgs } from "@/components/pokemons/pokemonImgs/PokemonImgs";
 import { PokemonDesc } from "@/components/pokemons/pokemonDesc/PokemonDesc";
 import { MainLayout } from "@/components/layouts";
 import Head from "next/head";
+import { getPokemonData } from "@/utils/getPokemondata";
 
 interface Props {
   pokemon: Pokemon
@@ -73,27 +73,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { id } = params as { id: string }
 
-  const { data } = await pokeApi.get<Pokemon>(`pokemon/${id}`)
-
-  const {
-    species, stats, id : pokemonId,
-    name, types,
-    base_experience, abilities,
-    height, weight, sprites
-} = data
-
-const pokemon = {
-    species,
-    types,
-    stats,
-    id : pokemonId,
-    name,
-    base_experience,
-    abilities,
-    height,
-    weight,
-    sprites,
-}
+  const pokemon = await getPokemonData(id);
 
   return {
     props: {

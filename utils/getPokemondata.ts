@@ -1,13 +1,9 @@
+import { pokemondata } from "@/adapters/pokemonData";
 import { pokeApi } from "@/api";
 import { Pokemon } from "@/interfaces";
 
-
-interface Props  {
-    PokemonId : number | string;
-}
-
-export const getPokemonData = async( {PokemonId} : Props )=>{
+export const getPokemonData = async( PokemonId : number | string ) =>{
     const { data } = await pokeApi.get<Pokemon>(`pokemon/${PokemonId}`);
 
-    return data 
+    return pokemondata(data); 
 }
