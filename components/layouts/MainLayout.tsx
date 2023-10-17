@@ -7,6 +7,8 @@ interface Props {
     title?: string;
 }
 
+const location = (typeof window === 'undefined') ? '' : window.location.origin
+
 const MainLayout = ({ children, title }: Props) => {
 
     const router = useRouter();
@@ -22,6 +24,10 @@ const MainLayout = ({ children, title }: Props) => {
                 <meta name="description" content="app for poke" />
                 <meta name='author' content="app for poke" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+                <meta property="og:title" content={`${title || 'poke app'}`} />
+                <meta property="og:description" content={`Esta es la pagima de ${title || 'poke app'}`} />
+                <meta property="og:image" content={`${location}/img/banner.png`}/>
             </Head>
             <Navbar />
             <main>
