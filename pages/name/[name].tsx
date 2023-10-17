@@ -55,19 +55,28 @@ PokemonByNamePage.getLayout = (page: JSX.Element) => {
 export const getStaticPaths: GetStaticPaths = async () => {
     const { data } = await pokeApi.get<PokemonListResponse>('pokemon?limit=151');
     return {
-        paths: data.results.map((pokemon, i) => ({
+        paths: data.results.map((pokemon) => ({
             params: {
                 name: pokemon.name,
             }
         })),
-        fallback: false
+        fallback: 'blocking'
     }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { name } = params as { name: string };
 
-    const pokemon = await getPokemonData( name );
+    const pokemon = await getPokemonData(name);
+
+    if (!pokemon) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false
+            }
+        }
+    }
 
     return {
         props: {
